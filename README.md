@@ -3,8 +3,7 @@
 
 This repository contains code for the paper "[Stacked Generative Adversarial Networks](https://arxiv.org/abs/1612.04357)". Part of the code is modified from OpenAI's [implementation](https://github.com/openai/improved-gan) of Improved GAN.
 
-Currently only the code for MNIST experiments is available. I am working hard to polish the code for SVHN/CIFAR-10 experiments and will push them to this repository as soon as possible.
-
+## Architecture
 <p align="center">
 <img src="http://www.cs.cornell.edu/~xhuang/img/sgan.jpg" width="650">
 </p>
@@ -17,19 +16,19 @@ Currently only the code for MNIST experiments is available. I am working hard to
 <img src="http://www.cs.cornell.edu/~xhuang/img/cifar_samples.png"  width="250">
 </p>
 
-## Usage
-
-run a simple experiment with independent training only:
-```
-cd mnist
-THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatX=float32 python train_independent.py
-```
-
-or with joint training (from scratch):
-
-```
-THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatX=float32 python train_joint.py
-```
+## Performance Comprison on CIFAR-10
+| Method       |  Inception Score | 
+| ------------- | ----------- |
+| Infusion training    |  4.62 ± 0.06     | 
+| GMAN (best variant)  |  5.34 ± 0.05  | 
+| LR-GAN  |  6.11 ± 0.06  | 
+| EGAN-Ent-VI  |  7.07 ± 0.10  | 
+| Denoising feature matching  |  7.72 ± 0.13 | 
+| DCGAN  |  6.58 | 
+| SteinGAN |  6.35 | 
+| Improved GAN（best variant)  |  8.09 ± 0.07 | 
+| AC-GAN |  8.25 ± 0.07 | 
+| **SGAN (ours)**   |  **8.59 ± 0.12** | 
 
 ## Citations
 
